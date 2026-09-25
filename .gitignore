@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Next.js output
+.next/
+out/
+*.tsbuildinfo
+
+# Environment variables
+.env*
+!.env.example
+
+# Runtime data
+db/*.db
+db/*.db-shm
+db/*.db-wal
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Tests and coverage
+coverage/
+jest-test-results.json
+
+# Deployment and tooling
+.vercel/
+.turbo/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local source archives and superseded files
+*.zip
+original_ticket_designer.tsx
+readme too.txt
+sounds/
+src/page.tsx
+src/layout.tsx
+src/not-found.tsx
+src/styles/index.css
+.eslintrc.json

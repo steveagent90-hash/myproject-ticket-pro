@@ -1,0 +1,13 @@
+.next
+node_modules
+public
+db
+.env*
+next-env.d.ts
+original_ticket_designer.tsx
+readme too.txt
+sounds
+src/layout.tsx
+src/not-found.tsx
+src/page.tsx
+src/styles/index.css

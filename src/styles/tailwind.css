@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0f1117;
+  --foreground: #f1f5f9;
+  --primary: #6ee7b7;
+  --primary-foreground: #064e3b;
+  --secondary: #1e2433;
+  --secondary-foreground: #94a3b8;
+  --accent: #f59e0b;
+  --accent-foreground: #78350f;
+  --muted: #1a2035;
+  --muted-foreground: #64748b;
+  --card: #161b2e;
+  --card-foreground: #f1f5f9;
+  --border: #2a3347;
+  --input: #1e2433;
+  --ring: #6ee7b7;
+  --radius: 10px;
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --status-valid: #22c55e;
+  --status-invalid: #ef4444;
+  --status-used: #f59e0b;
+  --status-pending: #64748b;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .font-mono-data {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .canvas-grid {
+    background-image:
+      linear-gradient(rgba(106, 231, 183, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(106, 231, 183, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .scan-pulse {
+    animation: scan-pulse 1.5s ease-in-out infinite;
+  }
+
+  .scan-line {
+    animation: scan-line 2s linear infinite;
+  }
+
+  .valid-flash {
+    animation: valid-flash 0.6s ease-out forwards;
+  }
+
+  .invalid-flash {
+    animation: invalid-flash 0.6s ease-out forwards;
+  }
+
+  .fade-in {
+    animation: fade-in 0.2s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slide-up 0.25s ease-out forwards;
+  }
+
+  .ticket-shadow {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.6),
+      0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(110, 231, 183, 0.3);
+  }
+
+  .glow-valid {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+  }
+
+  .glow-invalid {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+  }
+
+  .resize-handle {
+    cursor: se-resize;
+  }
+
+  .drag-cursor {
+    cursor: grab;
+  }
+
+  .drag-cursor:active {
+    cursor: grabbing;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    border-radius: 2px;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  #qr-scanner-container {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #qr-scanner-container .html5-qrcode-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  #qr-scanner-container .html5-qrcode-element {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  #qr-scanner-container .html5-qrcode-container {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+  }
+
+  #qr-scanner-container .qr-shade-frame {
+    display: none !important;
+  }
+
+  #qr-scanner-container .html5-qrcode-scan-region {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+  }
+
+  #qr-scanner-container .html5-qrcode-bottom-container,
+  #qr-scanner-container .html5-qrcode-file-picker,
+  #qr-scanner-container .html5-qrcode-header,
+  #qr-scanner-container .html5-qrcode-file-selector,
+  #qr-scanner-container .html5-qrcode-camera-selector-wrapper,
+  #qr-scanner-container .html5-qrcode-shaded-region,
+  #qr-scanner-container .html5-qrcode-gradientshadow-line,
+  #qr-scanner-container .html5-qrcode-button-table {
+    display: none !important;
+  }
+
+  #qr-scanner-container .html5-qrcode-start-button {
+    display: none !important;
+  }
+}
+
+@keyframes scan-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes valid-flash {
+  0% {
+    background-color: rgba(34, 197, 94, 0.4);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes invalid-flash {
+  0% {
+    background-color: rgba(239, 68, 68, 0.4);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
